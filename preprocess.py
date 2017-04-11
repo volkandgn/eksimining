@@ -37,7 +37,7 @@ def preprocess(s, lowercase=False):
     return tokens
  
 tweet = 'RT @marcobonzanini: just an example! :D http://example.com #NLP'
-tweet = 'misler gibi bir özel bolumu yayinlanmis mukemmel dizi. emegi gecen herkese helal olsun! bir diziyi bu kadar sevmemistim ulan! bu arada burak aksak aile fotografi  yuklemis; http://twitpic.com/72b5rp bir de; (bkz: seni seviyorum leyla) vay be...'
+tweet = 'halbuki o, çölde âhular, ceylanlar ve kuşlarla arkadaslık etmektedir ve mecâzî aşktan ilâhî aşka yükselmiştir. bu sebeple'
 print(preprocess(tweet))
 
 

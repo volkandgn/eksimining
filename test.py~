@@ -1,0 +1,4 @@
+from TurkishStemmer import TurkishStemmer
+stemmer = TurkishStemmer()
+result = stemmer.stem("arkadaslik")
+print(result)

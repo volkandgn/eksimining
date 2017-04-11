@@ -2,6 +2,7 @@ import operator
 import json
 import sys
 from collections import Counter
+from collections import defaultdict
 
 import string
  
@@ -42,12 +43,12 @@ def preprocess(s, lowercase=False):
     return tokens
 
 
-#search_word = sys.argv[1] # pass a term as a command-line argument
-#x"count_search = Counter()
+search_word = sys.argv[1] # pass a term as a command-line argument
+count_search = Counter()
 
 
-stop = punctuation + ['de', 've','ki','ya','da','gibi','bir','bu','spoiler','ş','o','çok','ama','için','ne','ile','daha','bkz']
-
+stop = punctuation + ['de', 've','ki','ya','da','gibi','bir','bu','spoiler','ş','o','çok','ama','için','ne','ile','daha','bkz','şey','ben']
+com = defaultdict(lambda : defaultdict(int))
 fname = 'eksi-data'
 with open(fname, 'r') as f:
     count_all = Counter()
@@ -55,11 +56,14 @@ with open(fname, 'r') as f:
         a_split = line.split(';')
         #tweet = json.loads(line)
         # Create a list with all the terms
-        terms_all = [term for term in preprocess(a_split[0]) if term not in stop]
+        terms_only = [term for term in preprocess(a_split[1]) if term not in stop]
         # Update the counter
-        count_all.update(terms_all)
-        #if search_word in terms_all:
-            #count_search.update(terms_all)
+        count_all.update(terms_only)
+        if search_word in terms_only:
+            count_search.update(terms_only)
     # Print the first 5 most frequent words
     #print("Co-occurrence for %s:" % search_word)
     print(count_all.most_common(20))
+    print("Co-occurrence for %s:" % search_word)
+    print(count_search.most_common(20))
+

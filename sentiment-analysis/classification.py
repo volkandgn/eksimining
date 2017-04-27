@@ -70,6 +70,7 @@ for tweet in test_entries:
     if classify_tweet(tweet[0]) != tweet[1]:
         accuracy -= 1
 
-print('Total accuracy: %f%% (%d/20).' % (accuracy / total * 100, accuracy))
+print('Total accuracy: %f%% (%d/4).' % (accuracy / total * 100, accuracy))
 
-print(classify_tweet('katillerin'))
+print('bugün harika bir gün => ' + classify_tweet('bugün harika bir gün'))
+print('hayatımda bu kadar rezalet bir etkinlik görmedim => ' + classify_tweet('hayatımda bu kadar rezalet bir etkinlik görmedim'))

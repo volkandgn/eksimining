@@ -44,12 +44,13 @@ def preprocess(s, lowercase=False):
 
 
 search_word = sys.argv[1] # pass a term as a command-line argument
+nameOfFile=sys.argv[2]
 count_search = Counter()
 
 
-stop = punctuation + ['de', 've','ki','ya','da','gibi','bir','bu','spoiler','ş','o','çok','ama','için','ne','ile','daha','bkz','şey','ben']
+stop = punctuation + ['de', 've','ki','ya','da','gibi','bir','bu','spoiler','ş','o','çok','ama','için','ne','ile','daha','bkz','şey','ben','ğraf','kadar', 'acaba','en','her','sen','ç','şma','yarı','hasa','et','bi','mi']
 com = defaultdict(lambda : defaultdict(int))
-fname = 'eksi-data'
+fname = 'Data-Sets-from-EksiSozluk/' + nameOfFile
 with open(fname, 'r') as f:
     count_all = Counter()
     for line in f:
@@ -61,30 +62,10 @@ with open(fname, 'r') as f:
         count_all.update(terms_only)
         if search_word in terms_only:
             count_search.update(terms_only)
-    # Print the first 5 most frequent words
+    # Print the first most frequent words
     #print("Co-occurrence for %s:" % search_word)
     print("Term frequency:")
-    print(count_all.most_common(5))
+    print(count_all.most_common(20))
     print("Co-occurrence for %s:" % search_word)
-    print(count_search.most_common(5))
-
-# n_docs is the total n. of tweets
-p_t = {}
-p_t_com = defaultdict(lambda : defaultdict(int))
- 
-for term, n in count_stop_single.items():
-    p_t[term] = n / n_docs
-    for t2 in com[term]:
-        p_t_com[term][t2] = com[term][t2] / n_docs
-
-positive_vocab = [
-    'good', 'nice', 'great', 'awesome', 'outstanding',
-    'fantastic', 'terrific', ':)', ':-)', 'like', 'love',
-    # shall we also include game-specific terms?
-    # 'triumph', 'triumphal', 'triumphant', 'victory', etc.
-]
-negative_vocab = [
-    'bad', 'terrible', 'crap', 'useless', 'hate', ':(', ':-(',
-    # 'defeat', etc.
-]
+    print(count_search.most_common(20))
 

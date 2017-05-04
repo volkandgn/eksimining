@@ -72,4 +72,4 @@ for tweet in test_entries:
 
 print('Total accuracy: %f%% (%d/20).' % (accuracy / total * 100, accuracy))
 
-print(classify_tweet('katillerin'))
+# print(classify_tweet('kod yazabilen kız ne demek? kod yazabilen erkek diye başlık var mı? kim köpek kendini karşı cinsinden üstün görüyor anlam veremiyorum.'))

@@ -1,2 +1,3 @@
 ne kadar berbat bir gün
 rezalet bir etkinlik
+İlkokullara kodlama dersi getireceğiz diyen hükümetin açık kaynak kod deposuna erişim engeli koyduğu bir ülkede yaşıyoruz.
